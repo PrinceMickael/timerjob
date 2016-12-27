@@ -1,42 +1,55 @@
 <?php
-ini_set('display_errors','on');
-    error_reporting(E_ALL);
-    $bdd = new PDO("mysql:host=localhost;dbname=gestion_entreprise", "root","");
-    session_start();
-    if (isset($_POST) and !empty($_POST)) {
+session_start();//Démarre une séssion
+
+include('Connexion_bdd.php');//Inclus la connexion a la bdd
+    
+    if (isset($_POST) and !empty($_POST)) { //Test les variable du formulaire
        if (strlen($_POST['mdp']) == 0){
            $msg = "ko";
        }
-   else { $sel = " SELECT * FROM liste_users WHERE email = :email AND password = :password;"; 
+   else { 
+       $sel = " SELECT * FROM liste_users WHERE Email = :email AND Password = :password;"; //Requete SQL pour récupérer les variables du formulaire
        $req = $bdd->prepare($sel);
        $req->execute(array(
         "password" => $_POST['mdp'],
         "email" => $_POST['login']
        ));
-       if ($req->rowCount() == 1){
+       
+       if ($req->rowCount() == 1){ //Test les variables du formulaires avec les identifiants dans la base de données
            $msg = "ok";
        }else {
            $msg ="Non";
        }
    } 
    }
-  if(isset($msg) && $msg == "Non"){ ?>
+  if(isset($msg) && $msg == "Non"){ //Si aucune coocordance trouver alors renvoie le message 
+?>
  <div class="alert alert-danger container">
      Recommence, essaye encore !
  </div>                  
- <?php  }
- if(isset($msg) && $msg == "ok"){ 
-    $_SESSION['Prenom'] = $_POST['prenom'];
-               
-                           
-  header('location: admin.php');
+ <?php
+}
+ 
+if(isset($msg) && $msg == "ok"){ 
+    $id = $bdd->prepare('SELECT ID FROM liste_users WHERE Email = ?');//Récupére l'id grace au Login
+    $id->execute(array(
+    $_POST['login']
+    ));
+    
+    $data = $id->fetch();
+  $_SESSION['id'] = $data['ID'];//Crée une variable de session                    
+  header('location: admin.php');//Redirige vers la page de connexion
  }
     
 
-    $_SESSION['test'] = 1234567890;
+    $_SESSION['test'] = 1234567890;//Crée une variable de session en TEST
 
-    setcookie("Connexion", "<a href='admin.php'>Admin</a>");
+    setcookie("Connexion", "<a href='admin.php'>Admin</a>"); //Crée le cookie
 ?>
+ <?php  if (isset($_SESSION['ID'])) { //Si la variable SESSION existe alors ça affiche la page , sinon rien 
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -84,4 +97,7 @@ ini_set('display_errors','on');
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
+<?php   
+    } 
+?>
 </html>
