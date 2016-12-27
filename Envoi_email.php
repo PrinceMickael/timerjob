@@ -5,12 +5,53 @@ session_start();
 if (!empty($_POST['email']) AND !empty($_POST['mdp'])) 
     {
       $_SESSION['email'] = $_POST['email']; //Défini une variable de séssion
+      $_SESSION['prenom'] = $_POST['prenom'];
+      $_SESSION['nom'] = $_POST['nom'];
+      $prenom = $_POST['prenom'];
+      $nom = $_POST['nom'];
+        //ENVOI DU MAIL
         
-      $message = "Line 1\r\nLine 2\r\nLine 3"; //Défini le méssage du mail
-      $message = wordwrap($message, 70, "\r\n"); //Si le message atteint les 70 charactére fait un saut de ligne
+     // Plusieurs destinataires
+     $to  = 'test.simplon.nice@gmail.com';
 
-// Envoi du mail
-      mail('jay-juana@outlook.fr', 'Mon Sujet', $message);
+     // Sujet
+     $subject = 'Demande autorisation de droit';
+
+     // message
+     $message = '
+     <html>
+      <head>
+       <title>Demande autorisation de droit</title>
+      </head>
+      <body>
+       <p>Votre employé ';
+      $message .= $prenom;
+      $message .= ' ';
+      $message .= $nom;
+      $message .= ' 
+         Vous demande un droit daccés </p>
+       <hr>
+       <a href="#"> Répondre a la demande de droit daccés </a>
+       </br>
+       <a href="#"> Refuser la demande de droit daccés </a>
+       
+      </body>
+     </html>
+     ';
+
+     // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+     $headers  = 'MIME-Version: 1.0' . "\r\n";
+     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+     // En-têtes additionnels
+     $headers .= 'To: Patron <test.simplon.nice@gmail.com>' . "\r\n";
+     $headers .= 'From: Entreprise <Entreprise@nice@gmail.com>' . "\r\n";
+     $headers .= 'Cc: Entreprise@example.com' . "\r\n";
+     $headers .= 'Bcc: Entreprise@example.com' . "\r\n";
+
+     // Envoi
+     mail($to, $subject, $message, $headers);
+
         
 //Appel a la base données
       include('Connexion_bdd.php');
@@ -37,33 +78,4 @@ if (!empty($_POST['email']) AND !empty($_POST['mdp']))
     header('Location: profile.php'); //Redirige vers la page de profile
         
 }
-?>
-<?php
- //Variable du formulaire
-  /*      $email = $_POST['email'];
-        $prenom = $_POST['prenom'];
-        $nom = $_POST['nom'];
-        
-        //Mail
-        $Objet = 'Confirmation de la création du compte';
-        $contenu = '<html>
-<head>
-   <title>Vous avez réservé sur notre site ...</title>
-</head>
-<body>
-   <p>Votre employer sous le nom de '.$nom.' Vous a envoyer une demande de droit</p>
-   <p>Liens vers le panel dadministration</p>
-</body>
-</html>'; 
-        $entetes = 
-'Content-type: text/html; charset=utf-8' . "\r\n" .
-'From: jay-juana@outlook.fr' . "\r\n" .
-'Reply-To: jay-juana@outlook.fr' . "\r\n" .
-'X-Mailer: PHP/' . phpversion();
-
-    mail($email, $Objet, $contenu, $entetes);    
-    
-
-
-*/
 ?>
