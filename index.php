@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     <title>Timer Job</title>
       <link rel="stylesheet" href="css/bootstrap.css">
-      <link rel="stylesheet" href="css/styleindex.css">
+      <link rel="stylesheet" href="style.css">
   </head>
 
 
   <body>
-    <script type="text/javascript" href="bootstrap.js"></script>
     <header>
       <div class="container-fluid">
         <h3>Timer Job</h3>
@@ -26,4 +25,7 @@
     <footer>
     </footer>
   </body>
+
+  
+  <script type="text/javascript" href="bootstrap.js"></script>
 </html>
