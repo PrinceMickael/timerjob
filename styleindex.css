@@ -1,0 +1,36 @@
+header {
+background-color: #191919;
+color: #ecebe8;
+padding: 30px;
+text-align: center;
+}
+
+body {
+  background-color: #ecede8;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+
+}
+
+button {
+flaot: center;
+margin-top: 200px;
+margin-left: 500px;
+padding: 80px;
+border-radius: 15px;
+background-color: #585858;
+color: #ecede8;
+font-size: 23px;
+border: none;
+}
+.register {
+  margin-left: 350px;
+}
+
+button:hover {
+  background-color:  #84db00;
+  color: #191919;
+}
