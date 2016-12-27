@@ -6,7 +6,8 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
      <link rel="stylesheet" href="css/bootstrap.css">
      <link rel="stylesheet" href="styleindex.css">
-
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
  </head>
 
@@ -17,11 +18,12 @@
        <h3>Timer Job</h3>
 </div>
    </header>
-   <div class="container-fluid">
 
-     <strong><button type="button" class="connexion" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"  name="connexion">Se connecter</button></a></strong>
-   <strong>  <button type="button" class="register" class="btn btn-primary btn-lg" name="register" data-toggle="modal" data-target="#myModa2">S'inscrire</button></a></strong>
-</div>
+
+  <button type="button" class="btn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" name="connexion">Se connecter</button>
+
+  <button type="button" class="btn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModa2" name="register">S'inscrire</button>
+
 
 <!-- Modal 1 -->
 
@@ -32,14 +34,18 @@
        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
        </button>
-       <h4 class="modal-title" id="myModalLabel">Se connecter</h4>
      </div>
      <div class="modal-body">
-       ...
+       <h1>Connexion</h1>
+       <br>
+       <form>
+       <input type="text" placeholder="Adresse Mail">
+       <input type="text" placeholder="Votre mot de passe">
+
+       </form>
      </div>
      <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary">Save changes</button>
+       <button type="button" class="btn btn-primary" value="submit">Se connecter</button>
      </div>
    </div>
  </div>
@@ -54,14 +60,19 @@
        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
        </button>
-       <h4 class="modal-title" id="myModalLabel">S'inscrire</h4>
      </div>
      <div class="modal-body">
-       ...
+       <h1>Inscription</h1>
+       <br>
+       <form method="post" action="Envoi_email.php">
+
+           <input type="text" name="email" placeholder="Email">
+           <input type="text" name="mdp" placeholder="Mot de passe">
+
      </div>
      <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary">Save changes</button>
+       <button type="submit" class="btn btn-primary">Inscription</button>
+     </form>
      </div>
    </div>
  </div>
