@@ -33,6 +33,7 @@
        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
        </button>
+       <h2>Se connecter</h2>
      </div>
      <div class="modal-body">
        <?php include('Connexion.php'); ?>
@@ -53,10 +54,9 @@
        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
        </button>
+       <h2>Inscription</h2>
      </div>
      <div class="modal-body">
-       <h1>Inscription</h1>
-       <br>
       <?php include('Inscription.php');?>
      </div>
      <div class="modal-footer">
