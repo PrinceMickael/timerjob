@@ -36,13 +36,7 @@
        </button>
      </div>
      <div class="modal-body">
-       <h1>Connexion</h1>
-       <br>
-       <form>
-       <input type="text" placeholder="Adresse Mail">
-       <input type="text" placeholder="Votre mot de passe">
-
-       </form>
+       <?php include('Connexion.php'); ?>
      </div>
      <div class="modal-footer">
        <button type="button" class="btn btn-primary" value="submit">Se connecter</button>
@@ -64,15 +58,10 @@
      <div class="modal-body">
        <h1>Inscription</h1>
        <br>
-       <form method="post" action="Envoi_email.php">
-
-           <input type="text" name="email" placeholder="Email">
-           <input type="text" name="mdp" placeholder="Mot de passe">
-
+      <?php include('Inscription.php');?>
      </div>
      <div class="modal-footer">
        <button type="submit" class="btn btn-primary">Inscription</button>
-     </form>
      </div>
    </div>
  </div>
