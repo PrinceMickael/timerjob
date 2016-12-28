@@ -3,7 +3,6 @@
  <head>
    <meta charset="utf-8">
    <title>Timer Job</title>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
      <link rel="stylesheet" href="css/bootstrap.css">
      <link rel="stylesheet" href="styleindex.css">
      <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,15 +15,15 @@
    <header>
      <div class="container-fluid">
        <h3>Timer Job</h3>
-</div>
+
    </header>
+<div class="button-modal">
 
+  <button type="button" id="connexion" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" name="connexion">Se connecter</button>
 
-  <button type="button" class="btn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" name="connexion">Se connecter</button>
-
-  <button type="button" class="btn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModa2" name="register">S'inscrire</button>
-
-
+  <button type="button" id="register" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModa2" name="register">S'inscrire</button>
+</div>
+</div>
 <!-- Modal 1 -->
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
