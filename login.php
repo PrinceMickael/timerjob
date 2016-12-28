@@ -46,7 +46,7 @@ if(isset($msg) && $msg == "ok"){
 
     setcookie("Connexion", "<a href='admin.php'>Admin</a>"); //Crée le cookie
 ?>
- <?php  if (isset($_SESSION['ID'])) { //Si la variable SESSION existe alors ça affiche la page , sinon rien 
+ <?php   
  ?>
 
 
@@ -98,6 +98,6 @@ if(isset($msg) && $msg == "ok"){
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 <?php   
-    } 
+     
 ?>
 </html>

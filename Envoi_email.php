@@ -31,9 +31,9 @@ if (!empty($_POST['email']) AND !empty($_POST['mdp']))
       $message .= ' 
          Vous demande un droit daccés </p>
        <hr>
-       <a href="#"> Répondre a la demande de droit daccés </a>
+       <p><a href="http://127.0.0.1/Gestion_entreprise/login.php"> Répondre a la demande de droit daccés </a></p>
        </br>
-       <a href="#"> Refuser la demande de droit daccés </a>
+       <p><a href="http://127.0.0.1/Gestion_entreprise/login.php"> Refuser la demande de droit daccés </a></p>
        
       </body>
      </html>
